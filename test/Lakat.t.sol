@@ -6,19 +6,17 @@ import {Upgrades} from "openzeppelin-foundry-upgrades/Upgrades.sol";
 import {Lakat} from "src/Lakat.sol";
 
 contract LakatTest is Test {
-  Lakat public instance;
+    Lakat public instance;
 
-  function setUp() public {
-    address recipient = vm.addr(1);
-    address initialOwner = vm.addr(2);
-    address proxy = Upgrades.deployUUPSProxy(
-      "Lakat.sol",
-      abi.encodeCall(Lakat.initialize, (recipient, initialOwner))
-    );
-    instance = Lakat(proxy);
-  }
+    function setUp() public {
+        address recipient = vm.addr(1);
+        address initialOwner = vm.addr(2);
+        address proxy =
+            Upgrades.deployUUPSProxy("Lakat.sol", abi.encodeCall(Lakat.initialize, (recipient, initialOwner)));
+        instance = Lakat(proxy);
+    }
 
-  function testName() public view {
-    assertEq(instance.name(), "Lakat");
-  }
+    function testName() public view {
+        assertEq(instance.name(), "Lakat");
+    }
 }
