@@ -1,0 +1,17 @@
+{
+  "name": "lakat-token",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Lakat token, UUPS upgradeable, with a Merkle-proof distributor holding the initial supply.",
+  "scripts": {
+    "merkle:build": "node merkle/build-tree.mjs",
+    "merkle:root": "node merkle/build-tree.mjs --root-only",
+    "merkle:proof": "node merkle/proof.mjs",
+    "test": "forge test --force"
+  },
+  "devDependencies": {
+    "@openzeppelin/merkle-tree": "^1.0.8",
+    "@openzeppelin/upgrades-core": "^1.44.0"
+  }
+}

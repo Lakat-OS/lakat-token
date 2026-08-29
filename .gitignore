@@ -18,3 +18,9 @@ docs/
 .env
 .env.*
 !.env.example
+
+# Node / Merkle tooling
+node_modules/
+merkle/out/
+merkle/allocations.json
+merkle/allocations.csv
