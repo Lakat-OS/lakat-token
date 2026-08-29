@@ -50,8 +50,7 @@ contract Deploy is Script {
         LakatTokenDistributor distributor = LakatTokenDistributor(distributorProxy);
 
         // 2. Lakat, minting the entire initial supply to the distributor.
-        lakatProxy =
-            Upgrades.deployUUPSProxy("Lakat.sol", abi.encodeCall(Lakat.initialize, (distributorProxy, owner)));
+        lakatProxy = Upgrades.deployUUPSProxy("Lakat.sol", abi.encodeCall(Lakat.initialize, (distributorProxy, owner)));
         Lakat lakat = Lakat(lakatProxy);
 
         // 3. Bind the token (one-shot).

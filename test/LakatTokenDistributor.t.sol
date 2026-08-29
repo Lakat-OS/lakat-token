@@ -36,9 +36,8 @@ contract LakatTokenDistributorTest is Test {
         );
         distributor = LakatTokenDistributor(distributorProxy);
 
-        address tokenProxy = Upgrades.deployUUPSProxy(
-            "Lakat.sol", abi.encodeCall(Lakat.initialize, (distributorProxy, owner))
-        );
+        address tokenProxy =
+            Upgrades.deployUUPSProxy("Lakat.sol", abi.encodeCall(Lakat.initialize, (distributorProxy, owner)));
         lakat = Lakat(tokenProxy);
 
         vm.prank(owner);
